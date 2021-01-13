@@ -1,0 +1,21 @@
+.app{
+    padding: 10px 20px;
+}
+.noapp{
+    color: blue;
+}
+table{
+    width: 100%;
+}
+table,th,td{
+    border-collapse: collapse;
+}
+tr{
+    border-bottom: 1px solid black;
+}
+tr{
+    border: 1px solid #ccc;   
+}
+td,th{
+    padding: 10px;
+}

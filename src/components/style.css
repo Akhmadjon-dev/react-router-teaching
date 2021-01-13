@@ -1,7 +1,9 @@
-.app{
-    padding: 10px 20px;
-    color: red;
-}
-.noapp{
-    color: blue;
+button{
+    padding: 12px 24px;
+    background-color: rgb(231, 60, 203);
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
