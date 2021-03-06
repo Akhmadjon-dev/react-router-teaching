@@ -6,10 +6,10 @@ export default class Movie extends Component {
   componentDidMount() {}
 
   render() {
-    const { item, likeHandler, deleteHandler } = this.props;
+    const { item, likeHandler, deleteHandler, infoHandler } = this.props;
     return (
       <tr>
-        <td>{item.title}</td>
+        <td onClick={() => infoHandler(item.id)}>{item.title}</td>
         <td>{item.genre}</td>
         <td>{item.stock}</td>
         <td>{item.rate}</td>

@@ -82,14 +82,17 @@ export default class Movie_list extends Component {
     }
 
 
+    infoHandler = (id) => {
+        this.props.history.push(`movies/${id}`);
+        console.log(id, "iddd", this.props);
+      };
+
 
     render() {
         const {genres, movies, pageSize, currentPage, genre} = this.state;
         updated = paginate(movies,currentPage, pageSize)
         const count = movies.length
         return (<div>
-            < h4 onClick={() => console.log(this.btnRef.current.focus())} > Showing {movies.length} movies in the database.</h4 >
-            <input ref={this.btnRef} name="name"/>
             {movies.length === 0 ? <h1>No movies</h1> : 
             <>
                 <Row >
@@ -108,7 +111,7 @@ export default class Movie_list extends Component {
                             </thead>
                             <tbody>
                                 {updated.map((item, index) => (
-                                    <Movie key={index} item={item} likeHandler={this.likeHandler} deleteHandler={this.deleteMovie} />
+                                    <Movie key={index} item={item} infoHandler={this.infoHandler} likeHandler={this.likeHandler} deleteHandler={this.deleteMovie} />
                                 ))}
                             </tbody>
                         </table>
