@@ -32,6 +32,15 @@ export default class Nav extends Component {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/movies/add"
+                >
+                  Add Movies
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/users">
                   Users
                 </Link>

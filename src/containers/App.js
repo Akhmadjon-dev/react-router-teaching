@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Movie from "./Movies/index.jsx";
 import Nav from "./Navbar/nav.js";
 import routes from "./routes.js";
@@ -18,6 +18,7 @@ export default class App extends Component {
               component={item.component}
             />
           ))}
+          <Redirect to="/movies" />
         </Switch>
       </div>
     );
