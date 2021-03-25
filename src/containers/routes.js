@@ -1,7 +1,7 @@
 import Add from "./Form/add.js";
 import Movie from "./Movies/index.jsx";
 import MovieInfo from "./Movies/MovieInfo";
-import Users from "./user";
+import Users from "./Users";
 
 export default [
   { exact: true, path: "/users", component: Users, key: "users" },

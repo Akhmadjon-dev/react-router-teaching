@@ -70,7 +70,13 @@ export default class Add extends Component {
     e.preventDefault();
 
     const errors = this.validate();
+
     this.setState({ errors });
+    // axios.post('user', account).then(res =>
+    //   {
+    //     message(res.data)
+    //   })
+    //   catch(err => message(err.message))
     console.log(errors, "validate");
     console.log("form submitted");
   };
