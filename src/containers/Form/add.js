@@ -23,11 +23,28 @@ export default class Add extends Component {
   //     console.log(this.state, "onchange");
   //   };
 
+  validateProperty = ({ name, value }) => {
+    if (name === "username") {
+      if (value.trim() === "") return "Username is required!";
+    }
+    if (name === "password") {
+      if (value.trim() === "") return "Password is required!";
+    }
+  };
+
   inputHandler = ({ target: input }) => {
+    const errors = { ...this.state.errors };
+    const errorMsg = this.validateProperty(input);
+
+    if (errorMsg) errors[input.name] = errorMsg;
+    else delete errors[input.name];
+
+    console.log(errors, "input on change error handling");
+
     const account = { ...this.state.account };
     account[input.name] = input.value;
 
-    this.setState({ account });
+    this.setState({ account, errors });
     console.log(this.state, "onchange");
   };
 
