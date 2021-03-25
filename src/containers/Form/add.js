@@ -62,7 +62,7 @@ export default class Add extends Component {
     });
     if (!error) return null;
     for (let item of error.details) errors[item.path[0]] = item.message;
-
+    console.log(error.details, "eroro joiiii");
     return errors;
   };
 
