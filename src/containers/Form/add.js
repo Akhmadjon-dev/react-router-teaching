@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
+import Joi from "joi-browser";
 import Input from "./input";
 
 export default class Add extends Component {
@@ -12,6 +13,11 @@ export default class Add extends Component {
       // password: 'Password is reuqired',
       // username: 'Password is reuqired'
     },
+  };
+
+  schema = {
+    username: Joi.string().required().label("Username"),
+    password: Joi.string().required().label("Password"),
   };
 
   //   inputHandler = (e) => {
@@ -50,14 +56,13 @@ export default class Add extends Component {
 
   validate = () => {
     const errors = {};
-    const { account } = this.state;
 
-    if (account.username.trim() === "") {
-      errors.username = "Username is required!!!";
-    }
-    if (account.password.trim() === "") {
-      errors.password = "Password is required!!!";
-    }
+    const { error } = Joi.validate(this.state.account, this.schema, {
+      abortEarly: false,
+    });
+    if (!error) return null;
+    for (let item of error.details) errors[item.path[0]] = item.message;
+
     return errors;
   };
 
